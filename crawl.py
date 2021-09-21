@@ -153,10 +153,7 @@ class CrawlProducts:
         return target_link
 
     def crawl(self):
-        # target_link = self.get_target_link()
-        target_link = ['https://fptshop.com.vn/may-tinh-xach-tay',
-                       'https://fptshop.com.vn/apple',
-                       'https://fptshop.com.vn/may-tinh-bang']
+        target_link = self.get_target_link()
         for link in target_link:
             self.get_into_link(link)
             # Print information into screen
