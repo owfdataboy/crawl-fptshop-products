@@ -172,7 +172,7 @@ class CrawlProducts:
                 print(f'------------- Processing product {i + 1}:', prod)
                 self.get_into_link(prod)
                 result = self.get_all_details_prod()
-                self.write_csv(result, f'{url}.csv')
+                self.write_csv(result, f'/data/{url}.csv')
         self.browser.close()
 
 
