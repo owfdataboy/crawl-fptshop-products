@@ -104,8 +104,13 @@ class CrawlProducts:
 
     def get_all_prods_link(self, url=None):
         selector = f"//a[contains(@href,'{url}')]"
-        a_tags = self.browser.find_elements_by_xpath(selector)
-        return set([link.get_attribute('href') for link in a_tags])
+        try:
+            a_tags = self.browser.find_elements_by_xpath(selector)
+            sleep(1)
+            return set([link.get_attribute('href') for link in a_tags])
+        except Exception:
+            a_tags = self.browser.find_elements_by_xpath(selector)
+            return set([link.get_attribute('href') for link in a_tags])
 
     def get_all_details_prod(self):
         try:
@@ -148,7 +153,10 @@ class CrawlProducts:
         return target_link
 
     def crawl(self):
-        target_link = self.get_target_link()
+        # target_link = self.get_target_link()
+        target_link = ['https://fptshop.com.vn/may-tinh-xach-tay',
+                       'https://fptshop.com.vn/apple',
+                       'https://fptshop.com.vn/may-tinh-bang']
         for link in target_link:
             self.get_into_link(link)
             # Print information into screen
